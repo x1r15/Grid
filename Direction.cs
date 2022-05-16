@@ -28,4 +28,13 @@ public static class DirectionExtensions
                 if (self == new Vector2Int(-1, 0)) return Direction.West;
                 throw new ArgumentException();
         }
+        
+        public static Direction Mirror(this Direction dir) => dir switch
+        {
+            Direction.North => Direction.South,
+            Direction.South => Direction.North,
+            Direction.East => Direction.West,
+            Direction.West => Direction.East,
+            _ => throw new ArgumentOutOfRangeException()
+        };
 }
